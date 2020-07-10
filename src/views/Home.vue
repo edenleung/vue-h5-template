@@ -2,12 +2,12 @@
   <div class="home">
     <h3>Vue.js</h3>
     <template v-if="!token">
-      <button @click="login" v-if="!token">登录</button>
+      <van-button type="primary" @click="login" size="small">登录</van-button>
     </template>
     <template v-else>
       <div>
         <p>{{ token ? `已登录 Token: ${token}` : '未登录' }}</p>
-        <button @click="logout">退出登录</button>
+        <van-button type="danger" @click="logout" size="small">退出登录</van-button>
       </div>
     </template>
   </div>
