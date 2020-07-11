@@ -5,6 +5,8 @@ import store from './store'
 
 import '@/core/vant'
 
+import './permission'
+
 Vue.config.productionTip = false
 
 new Vue({
