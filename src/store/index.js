@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import getters from './getters'
 import permission from './modules/permission'
+import user from './modules/user'
 import createPersistedState from 'vuex-persistedstate'
 import Cookies from 'js-cookie'
 
@@ -16,7 +17,7 @@ const permissionState = createPersistedState({
   }
 })
 
-const modules = { permission }
+const modules = { permission, user }
 
 export default new Vuex.Store({
   modules,
