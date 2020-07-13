@@ -1,11 +1,11 @@
 import { getUserinfo } from '@/api/project'
 
 const state = {
-  user: null
+  data: null
 }
 const mutations = {
   setUser(state, data) {
-    state.user = data
+    state.data = data
   }
 }
 
