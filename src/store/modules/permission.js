@@ -2,15 +2,19 @@ const state = {
   token: null
 }
 const mutations = {
-  login (state, token) {
-    state.token = token
-  },
-  logout (state) {
-    state.token = null
+  setToken (state, data) {
+    state.token = data
   }
 }
 
-const actions = {}
+const actions = {
+  Login({ commit }, token) {
+    commit('setToken', token)
+  },
+  LogOut({ commit }) {
+    commit('setToken', null)
+  }
+}
 
 export default {
   state,

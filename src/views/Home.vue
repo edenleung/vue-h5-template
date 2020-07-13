@@ -15,21 +15,20 @@
 
 <script>
 // import { login } from '@/api/user'
+import { mapGetters } from 'vuex'
 export default {
   name: 'Home',
   mounted () {
   },
   computed: {
-    token () {
-      return this.$store.getters.token
-    }
+    ...mapGetters
   },
   methods: {
     login () {
-      this.$store.commit('login', 'xxx.xxx.xxx')
+      this.$store.dispatch('Login', 'xxx.xxx.xxx')
     },
     logout () {
-      this.$store.commit('logout')
+      this.$store.dispatch('LogOut')
     }
   }
 }

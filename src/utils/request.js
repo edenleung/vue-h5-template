@@ -7,8 +7,11 @@ const request = axios.create({
 })
 
 const error = (error) => {
-  if (error.response) {
-    // TODO
+  const { response } = error
+  if (response.status === 401) {
+    store.dispatch('LogOut').then(() => {
+      location.reload()
+    })
   }
   return Promise.reject(error)
 }
