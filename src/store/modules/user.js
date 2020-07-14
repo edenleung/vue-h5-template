@@ -1,4 +1,4 @@
-import { getUserinfo } from '@/api/project'
+import { getUserinfo } from '@/api/user'
 
 const state = {
   data: null
