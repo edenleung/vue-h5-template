@@ -13,7 +13,7 @@ export function login (data) {
   })
 }
 
-export function getUserInfo(data) {
+export function getUserInfo() {
   return request({
     url: api.UserInfo,
     method: 'get'

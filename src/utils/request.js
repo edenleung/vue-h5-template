@@ -19,7 +19,7 @@ const error = (error) => {
 request.interceptors.request.use(config => {
   const token = store.getters.token
   if (token) {
-    config.headers['Authorization'] = 'Bearer  ' + token
+    config.headers['Authorization'] = 'Bearer ' + token
   }
   return config
 }, error)

@@ -5,7 +5,7 @@ import store from './store'
 
 import '@/core/vant'
 
-import './permission'
+// import './permission'
 
 Vue.config.productionTip = false
 
