@@ -14,17 +14,23 @@
 </template>
 
 <script>
-// import { login } from '@/api/user'
-import { mapGetters } from 'vuex'
+import { login } from '@/api/user'
+// import { mapGetters } from 'vuex'
 export default {
   name: 'Home',
   mounted () {
+    console.log(this.$store.getters.token)
   },
   computed: {
-    ...mapGetters
+    token () {
+      return this.$store.getters.token
+    }
   },
   methods: {
     login () {
+      login({ username: '' }).then(res => {
+        console.log(res)
+      })
       this.$store.dispatch('Login', 'xxx.xxx.xxx')
     },
     logout () {
