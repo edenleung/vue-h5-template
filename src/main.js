@@ -7,6 +7,9 @@ import '@/core/vant'
 
 // import './permission'
 
+// filter
+import '@/utils/filter'
+
 Vue.config.productionTip = false
 
 new Vue({
