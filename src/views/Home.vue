@@ -15,16 +15,14 @@
 
 <script>
 import { login } from '@/api/user'
-// import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 export default {
   name: 'Home',
   mounted () {
-    console.log(this.$store.getters.token)
+    console.log(this.token)
   },
   computed: {
-    token () {
-      return this.$store.getters.token
-    }
+    ...mapGetters(['token'])
   },
   methods: {
     login () {
