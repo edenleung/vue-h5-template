@@ -1,5 +1,6 @@
 import router from './router'
-
+import app from './app'
+import wechat from '@/utils/wechat'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import store from './store'
@@ -9,14 +10,16 @@ NProgress.configure({
   showSpinner: false
 })
 
-const whiteList = ['Login', 'Register']
+if (process.env.NODE_ENV === 'development') {
+  //  开发时模拟openid
+  app.setCookie('openid', 'o_Z3Is4_rGCpOqTSlijNDyk4Rgr0')
+}
 
 router.beforeEach((to, from, next) => {
   NProgress.start()
+  wechat.listen()
   if (!store.getters.token) {
-    if (whiteList.includes(to.name)) {
-      next()
-    } else {
+    if (to.meta.auth === true) {
       next({
         name: 'Login',
         query: {
@@ -24,6 +27,8 @@ router.beforeEach((to, from, next) => {
         }
       })
       NProgress.done()
+    } else {
+      next()
     }
   } else {
     if (!store.getters.user) {
