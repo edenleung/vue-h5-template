@@ -12,7 +12,7 @@ NProgress.configure({
 
 if (process.env.NODE_ENV === 'development') {
   //  开发时模拟openid
-  app.setCookie('openid', 'o_Z3Is4_rGCpOqTSlijNDyk4Rgr0')
+  app.setStorage('openid', 'o_Z3Is4_rGCpOqTSlijNDyk4Rgr0')
 }
 
 router.beforeEach((to, from, next) => {

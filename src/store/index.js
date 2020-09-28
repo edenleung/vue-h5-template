@@ -4,16 +4,16 @@ import getters from './getters'
 import permission from './modules/permission'
 import user from './modules/user'
 import createPersistedState from 'vuex-persistedstate'
-import Cookies from 'js-cookie'
+import app from '@/app'
 
 Vue.use(Vuex)
 
 const permissionState = createPersistedState({
   paths: ['permission'],
   storage: {
-    getItem: key => Cookies.get(key),
-    setItem: (key, value) => Cookies.set(key, value, { expires: 3, secure: false }),
-    removeItem: key => Cookies.remove(key)
+    getItem: key => app.getStorage(key),
+    setItem: (key, value) => app.setStorage(key, value),
+    removeItem: key => app.removeStorage(key)
   }
 })
 

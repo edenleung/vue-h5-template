@@ -23,11 +23,11 @@ const wechat = {
           code: getQuery('code')
         }
       }).then(res => {
-        app.setCookie('openid', res.result.openid, 7)
+        app.getStorage('openid', res.result.openid, 7)
         window.location.href = app.base_url
       })
     } else {
-      if (!app.getCookie('openid')) {
+      if (!app.getStorage('openid')) {
         const app_id = app.app_id
         const scope = 'snsapi_base'
         const app_callback = encodeURIComponent(window.location.href)
