@@ -17,13 +17,13 @@ const wechat = {
     if (getQuery('code') !== undefined) {
       // code 换取 openid
       request({
-        url: '/api/wxpay/openid',
+        url: '/wechat/wxlogin',
         method: 'get',
         params: {
           code: getQuery('code')
         }
       }).then(res => {
-        app.getStorage('openid', res.result.openid, 7)
+        app.getStorage('openid', res.result.user.openid, 7)
         window.location.href = app.base_url
       })
     } else {
