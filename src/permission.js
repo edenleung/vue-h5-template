@@ -15,9 +15,9 @@ if (process.env.NODE_ENV === 'development') {
   app.setStorage('openid', 'o_Z3Is4_rGCpOqTSlijNDyk4Rgr0')
 }
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(async(to, from, next) => {
   NProgress.start()
-  wechat.listen()
+  await wechat.listen()
   if (!store.getters.token) {
     if (to.meta.auth === true) {
       next({
@@ -48,7 +48,7 @@ router.beforeEach((to, from, next) => {
           }
         })
         .catch(() => {
-          Notify('warning', '请求用户信息失败，请重试')
+          Notify({ type: 'warning', message: '请求用户信息失败，请重试' })
           NProgress.done()
         })
     } else {
@@ -59,4 +59,5 @@ router.beforeEach((to, from, next) => {
 
 router.afterEach(() => {
   NProgress.done()
+  wechat.initSdk()
 })

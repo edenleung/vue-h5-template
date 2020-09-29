@@ -7,6 +7,7 @@ const app = {
   debug: false,
   base_url: 'http://www.domain.com',
   app_id: 'appid',
+  oauth_scope: 'snsapi_base',
   getStorageKey: key => {
     return app.storage_prefix + app.ver + '_' + key
   },
@@ -17,7 +18,7 @@ const app = {
     return Cookie.set(app.getStorageKey(key), value, { expires: exp })
   },
   removeStorage: key => {
-    return Cookie.remove(app.getStroageKey(key))
+    return Cookie.remove(app.getStorageKey(key))
   }
 }
 
