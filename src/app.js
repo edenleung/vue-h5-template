@@ -7,14 +7,17 @@ const app = {
   debug: false,
   base_url: 'http://www.domain.com',
   app_id: 'appid',
+  getStorageKey: key => {
+    return app.storage_prefix + app.ver + '_' + key
+  },
   getStorage: key => {
-    return Cookie.get(app.storage_prefix + app.ver + '_' + key)
+    return Cookie.get(app.getStorageKey(key))
   },
   setStorage: (key, value, exp = 7) => {
-    return Cookie.set(app.storage_prefix + app.ver + '_' + key, value, { expires: exp })
+    return Cookie.set(app.getStorageKey(key), value, { expires: exp })
   },
   removeStorage: key => {
-    return Cookie.remove(app.storage_prefix + app.ver + '_' + key)
+    return Cookie.remove(app.getStroageKey(key))
   }
 }
 
