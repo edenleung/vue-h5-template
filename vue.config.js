@@ -11,8 +11,7 @@ const namespaces = {
   'vue-router': 'VueRouter',
   vuex: 'Vuex',
   axios: 'axios',
-  vant: 'vant',
-  'vant/lib/index.css': 'vant/lib/index.css'
+  vant: 'vant'
 }
 
 const externals = IS_PROD ? namespaces : {}

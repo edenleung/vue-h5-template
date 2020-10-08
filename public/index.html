@@ -8,6 +8,7 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
       
     <!-- 使用CDN的CSS文件 -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/vant@2.9/lib/index.css">
     <% for (var i in htmlWebpackPlugin.options.cdn &&
     htmlWebpackPlugin.options.cdn.css) { %>
     <link rel="stylesheet" href="<%= htmlWebpackPlugin.options.cdn.css[i] %>" />
