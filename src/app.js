@@ -22,7 +22,7 @@ const app = {
   }
 }
 
-if (app.debug && process.env.NODE_ENV !== 'production') {
+if (app.debug && process.env.NODE_ENV === 'production') {
   new VConsole()
 }
 
