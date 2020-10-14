@@ -1,4 +1,4 @@
-import { getUserinfo } from '@/api/user'
+import { getUserInfo} from '@/api/user'
 
 const state = {
   data: null
@@ -12,7 +12,7 @@ const mutations = {
 const actions = {
   getUserInfo({ commit }) {
     return new Promise((resolve, reject) => {
-      getUserinfo()
+      getUserInfo()
         .then(response => {
           commit('setUser', response.result)
           resolve(response)
