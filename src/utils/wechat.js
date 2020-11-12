@@ -58,14 +58,15 @@ const wechat = {
   config: (config) => {
     wechat.sdk.config(config)
   },
-  initSdk: () => {
-    getWechatSDK({ url: location.href.split('#')[0] }).then(res => {
-      wechat.config(res.result.data)
+  initSdk: async(url) => {
+    await getWechatSDK({ url }).then(res => {
+      wechat.config({
+        ...res.result.data
+      })
     })
-    wechat.sdk.ready(wechat.ready())
   },
-  ready: () => {
-    console.log('ready')
+  ready: (cb) => {
+    wechat.sdk.ready(cb)
   }
 }
 
