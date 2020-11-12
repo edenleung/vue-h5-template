@@ -16,6 +16,8 @@
 <script>
 import { login } from '@/api/user'
 import { mapGetters } from 'vuex'
+import wechat from '@/utils/wechat'
+
 export default {
   name: 'Home',
   mounted () {
@@ -33,6 +35,11 @@ export default {
     },
     logout () {
       this.$store.dispatch('LogOut')
+    }.
+    share () {
+      wechat.ready(() => {
+        // js sdk 初始化成功 
+      })
     }
   }
 }
