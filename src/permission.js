@@ -28,6 +28,8 @@ router.beforeEach(async(to, from, next) => {
       })
       NProgress.done()
     } else {
+      // jssdk 初始化
+      // await wechat.initSdk(app.base_url + to.fullPath)
       next()
     }
   } else {
