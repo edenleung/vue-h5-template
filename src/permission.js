@@ -59,7 +59,16 @@ router.beforeEach(async(to, from, next) => {
   }
 })
 
-router.afterEach(() => {
+router.afterEach((to) => {
   NProgress.done()
-  wechat.initSdk()
+  let url = to.fullPath
+  if (window.__wxjs_is_wkwebview) {  // IOS 特殊处理
+    if (window.entryUrl == '' || window.entryUrl == undefined) {
+      window.entryUrl = to.fullPath
+      url = to.fullPath
+    }else {
+      url = window.entryUrl
+    }
+  }
+  wechat.initSdk(app.base_url + url)
 })
