@@ -8,6 +8,8 @@ const app = {
   base_url: 'http://www.domain.com',
   app_id: 'appid',
   oauth_scope: 'snsapi_base',
+  // h5 公众号快速关注链接
+  weixin_profile: 'https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=xxxxxx==&scene=124#wechat_redirect',
   getStorageKey: key => {
     return app.storage_prefix + app.ver + '_' + key
   },
