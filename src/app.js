@@ -1,5 +1,4 @@
 import Cookie from 'js-cookie'
-import VConsole from 'vconsole'
 
 const app = {
   ver: '1.0.0',
