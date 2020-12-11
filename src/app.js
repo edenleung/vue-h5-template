@@ -23,11 +23,11 @@ const app = {
   },
   removeStorage: key => {
     return Cookie.remove(app.getStorageKey(key))
-  }
-}
-
-if (app.debug && process.env.NODE_ENV === 'production') {
-  new VConsole()
+  },
+  // 开发人员 debug 账号集
+  debuger: [
+    // 'o_Z3Is4_rGCpOqTSlijNDyk4Rgr0'
+  ]
 }
 
 export default app
