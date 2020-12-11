@@ -1,5 +1,6 @@
 import axios from 'axios'
 import store from '@/store'
+import app from '@/app'
 
 const request = axios.create({
   baseURL: process.env.VUE_APP_API_BASE_URL,
@@ -18,7 +19,7 @@ const error = (error) => {
 
 request.interceptors.request.use(config => {
   const token = store.getters.token
-  if (token) {
+  if (token && config.url !== app.cdn_domain) {
     config.headers['Authorization'] = 'Bearer ' + token
   }
   return config
