@@ -43,7 +43,12 @@ const wechat = {
       }
     }).then(res => {
       app.setCookie('openid', res.result.openid, 7)
-      window.location.href = app.base_url
+      const callback = getQuery('callback')
+      if (callback !== undefined) {
+        window.location.href = decodeURIComponent(callback)
+      } else {
+        window.location.href = app.base_url
+      }
     }).catch(err => {
       throw err
     })
